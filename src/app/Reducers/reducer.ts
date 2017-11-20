@@ -2,9 +2,6 @@ const initialState={
     employee:[
         {
             'name':'Mukesh',
-        },
-        {
-            'name':'Aatish',
         }
     ]
 }
