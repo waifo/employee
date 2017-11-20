@@ -1,7 +1,7 @@
 import React from 'react';
 // import {connect} from 'react-redux'
 
-export class Home extends React.Component{
+export class Home extends React.Component<any,any>{
     
     render(){
         return (
