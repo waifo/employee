@@ -1,15 +1,21 @@
-import React from 'react';
-// import {connect} from 'react-redux'
+import * as React from 'react';
+import {connect} from 'react-redux'
 
-export class Home extends React.Component<any,any>{
+class Home extends React.Component<any,any>{
     
     render(){
         return (
-            // <div>Working React { this.props.abc}</div>
-         <button className="square">
-            {this.props.value}
-          </button>
+            <div>{this.props.employee.map((emp)=>{
+                return <div>{emp.name}</div>
+            })}</div>
         )
     }
 }
 
+function mapStateToProps(state){
+    return {
+        employee:state.employee
+    }
+}
+
+export default connect(mapStateToProps)(Home)
