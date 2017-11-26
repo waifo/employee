@@ -1,13 +1,17 @@
 import * as React from 'react';
 import {connect} from 'react-redux'
+import Employees from './Employees.component'
+import {store} from '../Store/store'
+import { Provider } from 'react-redux'
 
 class Home extends React.Component<any,any>{
     
     render(){
         return (
-            <div>{this.props.employee.map((emp)=>{
-                return <div>{emp.name}</div>
-            })}</div>
+            <Employees/>
+        //     <Provider store={store}>
+        //         <Employees/>
+        //    </Provider>
         )
     }
 }
@@ -19,3 +23,4 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps)(Home)
+// export default Home
