@@ -4,7 +4,6 @@ export function getEmployeesData(){
     let type="GET_EMP_DATA"
     return function(dispatch){
       return service.getEmployeesData().then((res)=>{
-          console.log("Res",res)
         dispatch({type:type , payload:res.data})
       })
     }
@@ -17,13 +16,12 @@ export function deleteEmployee(emp){
   return function(dispatch,getState){
     service.deleteEmployeeData(emp).then((res)=>{
       service.getEmployeesData().then((res)=>{
-        console.log("Res",res)
       dispatch({type:type , payload:res.data})
     })
       
   })
   .catch((error)=>{
-    console.log("errorrr",error)
+    // console.log("errorrr",error)
   })
   }
 
@@ -60,26 +58,24 @@ export function saveDetails(id,newData){
     if(!found){
       service.addEmployeeData(data).then((res)=>{
         service.getEmployeesData().then((res)=>{
-          console.log("Res",res)
         dispatch({type:type , payload:res.data})
       })
         
     })
     .catch((error)=>{
-      console.log("errorrr",error)
+      // console.log("errorrr",error)
     })
      
     }
     else{
       service.updateEmployeeData(data).then((res)=>{
         service.getEmployeesData().then((res)=>{
-          console.log("Res",res)
         dispatch({type:type , payload:res.data})
       })
         
     })
     .catch((error)=>{
-      console.log("errorrr",error)
+      // console.log("errorrr",error)
     })
     }
   }

@@ -4,6 +4,6 @@ import thunk from 'redux-thunk';
 
 export let store = createStore(employeeApp,applyMiddleware(thunk))
 
-const unsubscribe = store.subscribe(() =>
-console.log(store.getState())
+const unsubscribe = store.subscribe(() =>{}
+// console.log(store.getState())
 )

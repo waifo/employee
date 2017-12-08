@@ -2,7 +2,8 @@ import * as React from "react";
 import {connect} from 'react-redux'
 import {getEmployeesData,deleteEmployee,editEmployee,saveDetails,addEmployee,closeModal} from '../Actions/action'
 import {bindActionCreators} from 'redux';
-import {Button,Modal,InputGroup} from 'react-bootstrap'
+import {Button,Modal,InputGroup} from 'react-bootstrap';
+import '../../Styles/styles.css'
 
 class Employees extends React.Component<any,any> {
      selectedEmp={
@@ -48,8 +49,6 @@ class Employees extends React.Component<any,any> {
 
 
     render() {
-        //onHide={this.state.close}
-        {console.log("Employees",this.props.employee)}
         const modalInstance = (
             <Modal show={this.props.showModal} >
                 <Modal.Header>
@@ -57,39 +56,39 @@ class Employees extends React.Component<any,any> {
                 </Modal.Header>
           
                 <Modal.Body>
-                    <div>
-                        <label htmlFor="empID">ID</label>
-                        <input type="text" name="empID" defaultValue={this.selectedEmp.id} disabled={this.props.editing} onChange={(e)=>{
+                    <div className="input-div row">
+                        <label className='col-md-3' htmlFor="empID">ID</label>
+                        <input className='col-md-6' type="text" name="empID" defaultValue={this.selectedEmp.id} disabled={this.props.editing} onChange={(e)=>{
                             this.idHandler(e)
                         }}/>
                     </div>
-                    <div>
-                        <label htmlFor="empFN">First Name</label>
-                        <input type="text" name="empFN" defaultValue={this.selectedEmp.first_name} onChange={(e)=>{
+                    <div className="input-div row">
+                        <label className='col-md-3' htmlFor="empFN">First Name</label>
+                        <input className='col-md-6' type="text" name="empFN" defaultValue={this.selectedEmp.first_name} onChange={(e)=>{
                             this.firstNameHandler(e)
                         }}/>
                     </div>
-                    <div>
-                        <label htmlFor="empLN">Last Name</label>
-                        <input type="text" name="empLN" defaultValue={this.selectedEmp.last_name} onChange={(e)=>{
+                    <div className="input-div row">
+                        <label className='col-md-3' htmlFor="empLN">Last Name</label>
+                        <input className='col-md-6' type="text" name="empLN" defaultValue={this.selectedEmp.last_name} onChange={(e)=>{
                             this.lastNameHandler(e)
                         }}/>
                     </div>
-                    <div>
-                        <label htmlFor="empEM">E-Mail</label>
-                        <input type="text" name="empEM" defaultValue={this.selectedEmp.email} onChange={(e)=>{
+                    <div className="input-div row">
+                        <label className='col-md-3' htmlFor="empEM">E-Mail</label>
+                        <input className='col-md-6' type="text" name="empEM" defaultValue={this.selectedEmp.email} onChange={(e)=>{
                             this.emailNameHandler(e)
                         }}/>
                     </div>
-                    <div>
-                        <label htmlFor="empG">Gender</label>
-                        <input type="text" name="empG" defaultValue={this.selectedEmp.gender} onChange={(e)=>{
+                    <div className="input-div row">
+                        <label className='col-md-3' htmlFor="empG">Gender</label>
+                        <input className='col-md-6' type="text" name="empG" defaultValue={this.selectedEmp.gender} onChange={(e)=>{
                             this.genderNameHandler(e)
                         }}/>
                     </div>
-                    <div>
-                        <label htmlFor="empC">City</label>
-                        <input type="text" name="empC" defaultValue={this.selectedEmp.city} onChange={(e)=>{
+                    <div className="input-div row">
+                        <label className='col-md-3' htmlFor="empC">City</label>
+                        <input className='col-md-6' type="text" name="empC" defaultValue={this.selectedEmp.city} onChange={(e)=>{
                             this.cityNameHandler(e)
                         }}/>
                     </div>

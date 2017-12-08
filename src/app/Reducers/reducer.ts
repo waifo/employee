@@ -11,36 +11,30 @@ export function employeeApp(state = initialState, action) {
           })
     }
     else if(action.type==='DEL_EMP'){
-        console.log("DEL_EMP Fired")
         return (<any>Object).assign({}, state,{
             employee:action.payload,
             editing:false
         })
     }
     else if(action.type==="EDIT_EMP"){
-        console.log("EDIT_EMP Fired")
         return Object.assign({},state,{
-            // employee:state.employee,
             showModal:action.payload.showModal,
             editing:true
         })
     }
     else if(action.type==="SAVE_EMP"){
-        console.log("SAVE_EMP Fired")
         return Object.assign({},state,{
             employee:action.payload,
             editing:false
         })
     }
     else if(action.type==="ADD_EMP"){
-        console.log("ADD_EMP Fired")
         return Object.assign({},state,{
             showModal:action.payload.showModal,
             editing:false
         })
     }
     else if(action.type==="CLOSE_MODAL"){
-        console.log("CLOSE_MODAL Fired")
         return Object.assign({},state,{
             showModal:action.payload.showModal,
             editing:false
