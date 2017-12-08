@@ -152,7 +152,7 @@ class Employees extends React.Component<any,any> {
                                         this.props.editEmployee(true);
                                     }}>Edit</Button></td>
                                     <td><Button bsStyle="danger" onClick={(e)=>{
-                                        this.props.deleteEmployee(ind)
+                                        this.props.deleteEmployee(emp)
                                     }}>Delete</Button></td>
                                 </tr>
                                 )

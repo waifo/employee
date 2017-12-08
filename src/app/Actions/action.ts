@@ -10,39 +10,29 @@ export function getEmployeesData(){
     }
   }
 
-export function deleteEmployee(ind){
-  // console.log("Del Index",e)
+export function deleteEmployee(emp){
   let tempEmp;
   let type='DEL_EMP'
   
   return function(dispatch,getState){
-
-    tempEmp=getState().employee.filter((emp,index)=>{
-        return ind!==index
+    service.deleteEmployeeData(emp).then((res)=>{
+      service.getEmployeesData().then((res)=>{
+        console.log("Res",res)
+      dispatch({type:type , payload:res.data})
     })
-    console.log("State",tempEmp)
-    return dispatch({type:type , payload:tempEmp})
+      
+  })
+  .catch((error)=>{
+    console.log("errorrr",error)
+  })
   }
 
 }
 
 export function editEmployee(showModal){
-  // console.log("Employee to be edited",e)
   let type='EDIT_EMP'
   
   return function(dispatch,getState){
-
-    // tempEmp=getState().employee.map((emp,index)=>{
-    //     if(ind===index){
-    //       emp.id=newData.id,
-    //       emp.first_name=newData.first_name,
-    //       emp.last_name=newData.last_name,
-    //       emp.email=newData.email,
-    //       emp.gender=newData.gender,
-    //       emp.city=newData.city
-
-    //     }
-    // })
     return dispatch({type:type , payload:{showModal:showModal}})
   }
 
@@ -52,6 +42,8 @@ export function saveDetails(id,newData){
   let tempEmp
   let type='SAVE_EMP';
   let found=false;
+  let data=newData
+  
   return function(dispatch,getState){
     tempEmp=getState().employee.map((emp,index)=>{
         if(id===emp.id){
@@ -66,10 +58,30 @@ export function saveDetails(id,newData){
         return emp;
     });
     if(!found){
-      tempEmp.push(newData)
+      service.addEmployeeData(data).then((res)=>{
+        service.getEmployeesData().then((res)=>{
+          console.log("Res",res)
+        dispatch({type:type , payload:res.data})
+      })
+        
+    })
+    .catch((error)=>{
+      console.log("errorrr",error)
+    })
+     
     }
-    console.log("Tem EMp Save Details",tempEmp)
-    return dispatch({type:type , payload:{tempEmp:tempEmp}})
+    else{
+      service.updateEmployeeData(data).then((res)=>{
+        service.getEmployeesData().then((res)=>{
+          console.log("Res",res)
+        dispatch({type:type , payload:res.data})
+      })
+        
+    })
+    .catch((error)=>{
+      console.log("errorrr",error)
+    })
+    }
   }
 }
 

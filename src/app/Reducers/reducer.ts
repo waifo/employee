@@ -5,8 +5,6 @@ const initialState={
 }
 
 export function employeeApp(state = initialState, action) {
-    // For now, don't handle any actions
-    // and just return the state given to us.
     if(action.type==='GET_EMP_DATA'){
         return (<any>Object).assign({}, state, {
             employee:action.payload
@@ -30,7 +28,7 @@ export function employeeApp(state = initialState, action) {
     else if(action.type==="SAVE_EMP"){
         console.log("SAVE_EMP Fired")
         return Object.assign({},state,{
-            employee:action.payload.tempEmp,
+            employee:action.payload,
             editing:false
         })
     }
